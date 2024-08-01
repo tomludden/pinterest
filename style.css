@@ -61,6 +61,7 @@
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 #login-btn:hover {
   border-color: #000002;
 }
@@ -77,6 +78,7 @@
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 #toggle-btn:hover {
   border-color: #000002;
 }
@@ -286,7 +288,9 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   align-items: stretch;
+  scale: 0.8;
 }
+
 h1 {
   display: flex;
   font-size: 40px;
@@ -310,5 +314,8 @@ input {
 @media (max-width: 370px) {
   #search-input {
     width: 150px;
+  }
+  input {
+    font-size: 14px;
   }
 }
