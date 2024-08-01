@@ -7,6 +7,7 @@ const toggleBtn = document.getElementById('toggle-btn')
 const header = document.getElementById('header')
 const mainContent = document.getElementById('main-content')
 const footer = document.getElementById('footer')
+const headerLogo = document.getElementById('header-logo')
 
 let darkMode = false
 
@@ -98,20 +99,13 @@ function performSearch() {
   }
 }
 
-// Initial load with default query
 loadImages()
 
-/* searchBtn.addEventListener('click', () => {
-  const query = searchInput.value
-  loadImages(query)
-  searchInput.value = '' // Clear the input field
-})
+const resetToLandingPage = () => {
+  loadImages()
+}
 
-searchInput.addEventListener('keyup', (event) => {
-  if (event.key === 'Enter') {
-    searchBtn.click()
-  }
-}) */
+headerLogo.addEventListener('click', resetToLandingPage)
 
 toggleBtn.addEventListener('click', () => {
   darkMode = !darkMode
@@ -121,11 +115,3 @@ toggleBtn.addEventListener('click', () => {
     document.body.classList.remove('dark-mode')
   }
 })
-/* searchInput.addEventListener('focus', () => {
-  loadImages()
-  document.addEventListener('click', () => {
-    loadImages()
-  })
-
-  loadImages()  */ // Initial load with default query
-/* }) */
