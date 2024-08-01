@@ -34,7 +34,11 @@ const loadImages = (query = 'dog') => {
           card.appendChild(img)
 
           const title = document.createElement('h2')
-          title.textContent = photo.description || 'No title'
+          let titleText = photo.description || 'No title'
+          if (titleText.length > 100) {
+            titleText = titleText.substring(0, 100) + '  ...'
+          }
+          title.textContent = titleText
           card.appendChild(title)
 
           const description = document.createElement('p')
@@ -55,10 +59,7 @@ const loadImages = (query = 'dog') => {
           const heartIcon = document.createElement('span')
           heartIcon.className = 'heart-icon'
           heartIcon.innerHTML = '❤️' // Using a heart emoji or replace with an image
-          /* 
-          const likes = document.createElement('span');
-          likes.className = 'likes-count'; 1st clsass ""
-          likes.textContent = `${photo.likes} likes`; */
+
           const likes = document.createElement('span')
           likes.className = 'likes-count'
           likes.textContent = `${photo.likes} likes`
@@ -79,12 +80,10 @@ const loadImages = (query = 'dog') => {
     })
 }
 
-// Event listener for search button
 searchBtn.addEventListener('click', () => {
   performSearch()
 })
 
-// Event listener for Enter key in the search input
 searchInput.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
     performSearch()
@@ -95,7 +94,7 @@ function performSearch() {
   const query = searchInput.value.trim()
   if (query) {
     loadImages(query)
-    searchInput.value = '' // Optionally clear input after search
+    searchInput.value = ''
   }
 }
 
