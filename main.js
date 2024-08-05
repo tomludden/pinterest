@@ -1,5 +1,3 @@
-import './style.css'
-
 const cardsContainer = document.getElementById('cards-container')
 const searchBtn = document.getElementById('search-btn')
 const searchInput = document.getElementById('search-input')
